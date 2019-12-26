@@ -14,7 +14,9 @@ public class VideoGame {
     private Set<Review> reviews;
     @ElementCollection
     private Set<String> tags;
-    private Float personalRating;
+
+    @ManyToMany
+    private Set<User> played_by;
 
     public Long getId() {
         return id;
@@ -46,13 +48,5 @@ public class VideoGame {
 
     public void setTags(Set<String> tags) {
         this.tags = tags;
-    }
-
-    public Float getPersonalRating() {
-        return personalRating;
-    }
-
-    public void setPersonalRating(Float personalRating) {
-        this.personalRating = personalRating;
     }
 }
