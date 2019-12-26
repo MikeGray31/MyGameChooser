@@ -2,8 +2,7 @@ package com.example.MyGameChooser.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.util.Set;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -12,7 +11,7 @@ public class User {
     private String user_name;
     private String password;
 
-    @ManyToMany
-    private Set<VideoGame> played_games;
+    @OneToMany(mappedBy = "user")
+    User_Games user_games;
 
 }

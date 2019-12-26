@@ -7,24 +7,15 @@ import java.util.Set;
 public class VideoGame {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private String title;
     @OneToMany(mappedBy = "game")
     private Set<Review> reviews;
     @ElementCollection
     private Set<String> tags;
 
-    @ManyToMany
-    private Set<User> played_by;
+    @OneToMany(mappedBy = "video_game")
+    User_Games user_games;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
