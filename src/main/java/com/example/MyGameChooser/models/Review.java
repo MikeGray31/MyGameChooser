@@ -7,22 +7,22 @@ public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    Long review_id;
     private String text;
     private Float score;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "game_id")
     private VideoGame game;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "source_id")
     private Source source;
 
     public Long getId() {
-        return id;
+        return review_id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.review_id = id;
     }
 
     public String getText() {

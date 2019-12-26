@@ -1,17 +1,20 @@
 package com.example.MyGameChooser.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long user_id;
+
+    @Column(name = "user_name")
     private String user_name;
+
     private String password;
 
     @OneToMany(mappedBy = "user")
-    User_Games user_games;
-
+    private Set<User_Games> user_games;
 }

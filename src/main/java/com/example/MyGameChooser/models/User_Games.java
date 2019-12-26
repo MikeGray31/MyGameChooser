@@ -2,6 +2,7 @@ package com.example.MyGameChooser.models;
 
 import javax.persistence.*;
 
+@Entity
 public class User_Games {
 
     @Id
@@ -9,12 +10,12 @@ public class User_Games {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_name")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "title")
-    private VideoGame videoGame;
+    @JoinColumn(name = "game_id")
+    private VideoGame video_game;
 
     private Float score;
 }

@@ -7,8 +7,9 @@ import java.util.Set;
 public class Source {
 
     @Id
+    @Column(name = "source_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long source_id;
     private String website;
     private String Author;
     private Float trustworthiness;
@@ -16,11 +17,11 @@ public class Source {
     private Set<Review> review;
 
     public Long getId() {
-        return id;
+        return source_id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.source_id = id;
     }
 
     public String getWebsite() {

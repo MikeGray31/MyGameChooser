@@ -7,14 +7,18 @@ import java.util.Set;
 public class VideoGame {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long game_id;
+    @Column(name = "title")
     private String title;
     @OneToMany(mappedBy = "game")
     private Set<Review> reviews;
+
     @ElementCollection
     private Set<String> tags;
 
     @OneToMany(mappedBy = "video_game")
-    User_Games user_games;
+    private Set<User_Games> user_games;
 
 
     public String getTitle() {
