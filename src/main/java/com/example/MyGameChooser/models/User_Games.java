@@ -18,4 +18,5 @@ public class User_Games {
     private VideoGame video_game;
 
     private Float score;
+    private String review;
 }

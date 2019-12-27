@@ -11,6 +11,8 @@ import java.net.URLConnection;
 
 public class WebDataGetter {
 
+    public static String[] metaCriticSystemTags = {"playstation-4", "xbox-one", "switch", "pc", "wii-u", "3ds", "playsation-vita", "ios"};
+
     public static String getUrlContents(String theUrl) {
         StringBuilder content = new StringBuilder();
 
@@ -40,7 +42,13 @@ public class WebDataGetter {
         return content.toString();
     }
 
-    public static String getScores(String htmlText){
+    public static String getGoogleSearch(String searchTerm) {
+        String GOOGLE_SEARCH_URL = "https://www.google.com/search";
+        String searchURL = GOOGLE_SEARCH_URL + "?q="+searchTerm.replace(" ","+");
+        return searchURL;
+    }
+
+    public static String getGoogleScores(String htmlText){
         Document doc = Jsoup.parse(htmlText);
         Elements sources = doc.getElementsByClass("wDgjf");
         Elements scores = doc.getElementsByClass("gsrt IZACzd");
@@ -48,6 +56,18 @@ public class WebDataGetter {
         System.out.println(sources);
         System.out.println("-----------");
         System.out.println(scores);
+        return sources.toString() + " ||| " + scores.toString();
+    }
+
+    public static String getMetaCriticSearch(String platform, String title){
+        String METACRITIC_SEARCH_URL = "https://www.metacritic.com/game/";
+        return METACRITIC_SEARCH_URL + platform + "/" + title.replace(" ", "-").toLowerCase();
+    }
+
+    public static String getMetaCriticScores(String htmlText){
+        Document doc = Jsoup.parse(htmlText);
+        Elements sources;
+        Elements scores;
         return null;
     }
 }
