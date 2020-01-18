@@ -12,7 +12,6 @@ public class Source {
     private Long source_id;
     private String website;
     private String Author;
-    private Float trustworthiness;
     @OneToMany(mappedBy = "source")
     private Set<Review> reviews;
 
@@ -38,14 +37,6 @@ public class Source {
 
     public void setAuthor(String author) {
         Author = author;
-    }
-
-    public Float getTrustworthiness() {
-        return trustworthiness;
-    }
-
-    public void setTrustworthiness(Float trustworthiness) {
-        this.trustworthiness = trustworthiness;
     }
 
     public Set<Review> getReviews() {

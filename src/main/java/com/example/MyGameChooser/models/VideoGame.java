@@ -18,7 +18,7 @@ public class VideoGame {
     private Set<String> tags;
 
     @OneToMany(mappedBy = "video_game")
-    private Set<User_Games> user_games;
+    private Set<User_Game> user_games;
 
 
     public String getTitle() {
@@ -43,5 +43,21 @@ public class VideoGame {
 
     public void setTags(Set<String> tags) {
         this.tags = tags;
+    }
+
+    public Long getGame_id() {
+        return game_id;
+    }
+
+    public void setGame_id(Long game_id) {
+        this.game_id = game_id;
+    }
+
+    public Set<User_Game> getUser_games() {
+        return user_games;
+    }
+
+    public void setUser_games(Set<User_Game> user_games) {
+        this.user_games = user_games;
     }
 }
