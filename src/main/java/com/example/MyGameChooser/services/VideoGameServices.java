@@ -23,4 +23,8 @@ public class VideoGameServices {
     public VideoGame findGame(String title){
         return this.videoGameRepository.findById(title).get();
     }
+
+    public void deleteGame(String title) {
+        this.videoGameRepository.deleteById(title);
+    }
 }
